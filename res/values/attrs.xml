@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="Life">
+        <attr name="live" format="boolean" />
+    </declare-styleable>
+    <dimen name="cell_height">30dp</dimen>
+    <dimen name="cell_width">30dp</dimen>
+    <dimen name="btn_height">40dp</dimen>
+</resources>

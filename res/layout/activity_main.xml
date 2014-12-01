@@ -1,0 +1,46 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <GridLayout
+        android:id="@+id/gameBoard"
+        android:layout_width="wrap_content"
+        android:layout_above="@+id/stepBtn"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content" >
+    </GridLayout>
+
+    <Button
+        android:id="@+id/stepBtn"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/btn_height"
+        android:layout_above="@+id/clearBtn"
+        android:onClick="doStep"
+        android:text="@string/btn_label1" />
+
+    <Button
+        android:id="@+id/clearBtn"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/btn_height"
+        android:layout_above="@+id/runBtn"
+        android:onClick="clearBoard"
+        android:text="@string/btn_label2" />
+    
+    <Button
+        android:id="@+id/runBtn"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/btn_height"
+        android:layout_alignParentBottom="true"
+        android:onClick="runSim"
+        android:text="@string/btn_label3" />
+    
+    <Button
+        android:id="@+id/endBtn"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/btn_height"
+        android:layout_alignParentBottom="true"
+        android:onClick="endSim"
+        android:text="@string/btn_label4"
+        android:visibility="invisible" />
+
+</RelativeLayout>

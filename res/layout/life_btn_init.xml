@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<colleen.gameoflife.LifeButton xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/cell_width"
+    android:layout_height="@dimen/cell_height"
+    android:onClick="@string/LifeBtnClick"
+    android:background="@drawable/life_btn"
+    />
+

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android"
+    	xmlns:app="http://schemas.android.com/apk/res/colleen.gameoflife" >
+    <item
+        app:live="true"
+        android:drawable="@drawable/live" />
+    <item 
+        app:live="false"
+        android:drawable="@drawable/dead" />
+</selector>

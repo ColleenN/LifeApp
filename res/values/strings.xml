@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">GameOfLife</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="LifeBtnClick">toggle</string>
+    <string name="btn_label1">Step</string>
+    <string name="btn_label2">Clear</string>
+    <string name="btn_label3">Run</string>
+    <string name="btn_label4">Stop</string>
+
+</resources>
