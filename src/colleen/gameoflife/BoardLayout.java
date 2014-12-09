@@ -116,7 +116,7 @@ public class BoardLayout extends GridLayout {
 		return coord[0] + getColumnCount() * coord[1];	
 	}
 	
-	private ArrayList<int[]> getAdjCoord(int[] coord)
+	protected ArrayList<int[]> getAdjCoord(int[] coord)
 	{
 		ArrayList<int[]> adjCoords = new ArrayList<int[]>();
 		

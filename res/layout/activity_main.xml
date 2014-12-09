@@ -2,13 +2,13 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 
-    <colleen.gameoflife.BoardLayout
+    <colleen.gameoflife.WrappedBoardLayout
         android:id="@+id/gameBoard"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_above="@+id/stepBtn"
         android:layout_centerHorizontal="true">
-    </colleen.gameoflife.BoardLayout>
+    </colleen.gameoflife.WrappedBoardLayout>
 
     <Button
         android:id="@+id/stepBtn"
