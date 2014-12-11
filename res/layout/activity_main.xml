@@ -1,46 +1,74 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="wrap_content" >
 
-    <colleen.gameoflife.WrappedBoardLayout
+    <colleen.gameoflife.BoardLayout
         android:id="@+id/gameBoard"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_above="@+id/stepBtn"
+        android:layout_above="@+id/topBtnRow"
         android:layout_centerHorizontal="true">
+    </colleen.gameoflife.BoardLayout>
+	  
+    <colleen.gameoflife.WrappedBoardLayout
+        android:id="@+id/wrappedGameBoard"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/topBtnRow"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone">
     </colleen.gameoflife.WrappedBoardLayout>
 
-    <Button
-        android:id="@+id/stepBtn"
-        android:layout_width="fill_parent"
-        android:layout_height="@dimen/btn_height"
-        android:layout_above="@+id/clearBtn"
-        android:onClick="doStep"
-        android:text="@string/btn_label1" />
-
-    <Button
-        android:id="@+id/clearBtn"
-        android:layout_width="fill_parent"
-        android:layout_height="@dimen/btn_height"
-        android:layout_above="@+id/runBtn"
-        android:onClick="clearBoard"
-        android:text="@string/btn_label2" />
     
-    <Button
-        android:id="@+id/runBtn"
-        android:layout_width="fill_parent"
-        android:layout_height="@dimen/btn_height"
-        android:layout_alignParentBottom="true"
-        android:onClick="runSim"
-        android:text="@string/btn_label3" />
-    
-    <Button
-        android:id="@+id/endBtn"
-        android:layout_width="fill_parent"
-        android:layout_height="@dimen/btn_height"
-        android:layout_alignParentBottom="true"
-        android:onClick="endSim"
-        android:text="@string/btn_label4"
-        android:visibility="invisible" />
+	<LinearLayout
+        android:id="@+id/topBtnRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bottomBtnRow" >
+		<Button
+			android:id="@+id/clearBtn"
+			android:layout_weight="1"
+			android:layout_width="match_parent"
+			android:layout_height="@dimen/btn_height"
+			android:onClick="clearBoard"
+			android:text="@string/btn_label2" />
+		<Button
+			android:id="@+id/boardToggleBtn"
+			android:layout_weight="1"
+			android:layout_width="match_parent"
+			android:layout_height="@dimen/btn_height"
+			android:onClick="swapType"
+			android:text="@string/btn_label5" />
+	</LinearLayout>
+    <LinearLayout
+        android:id="@+id/bottomBtnRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" >
 
+		<Button
+			android:id="@+id/stepBtn"
+			android:layout_weight="1"
+			android:layout_width="match_parent"
+			android:layout_height="@dimen/btn_height"
+			android:onClick="doStep"
+			android:text="@string/btn_label1" />
+    
+		<Button
+			android:id="@+id/runBtn"
+			android:layout_weight="1"
+			android:layout_width="match_parent"
+			android:layout_height="@dimen/btn_height"
+			android:onClick="runSim"
+			android:text="@string/btn_label3" />
+    
+		<Button
+			android:id="@+id/endBtn"
+			android:layout_width="match_parent"
+			android:layout_height="@dimen/btn_height"
+			android:layout_weight="1"
+			android:onClick="endSim"
+			android:text="@string/btn_label4"
+			android:visibility="gone" />"
+	</LinearLayout>
 </RelativeLayout>

@@ -8,5 +8,7 @@
     <string name="btn_label2">Clear</string>
     <string name="btn_label3">Run</string>
     <string name="btn_label4">Stop</string>
+    <string name="btn_label5">Wrap Board</string>
+    <string name="btn_label6">Unwrap Board</string>
 
 </resources>
