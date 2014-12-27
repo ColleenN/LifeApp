@@ -1,16 +1,16 @@
 package colleen.gameoflife;
-
-import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.view.*;
-import android.widget.Button;
+import android.widget.GridLayout;
+import android.widget.TextView;
 
-public class MainActivity extends Activity
+public class MainActivity extends FragmentActivity
 {
 	private int delay = 500; // Time between steps when in run mode
 	private Handler timer;
-	BoardLayout activeBoard;
 	Runnable mySimRunner = new Runnable()
 	{
 		public void run()
@@ -26,17 +26,21 @@ public class MainActivity extends Activity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		timer = new Handler();
-		activeBoard = (BoardLayout)findViewById(R.id.gameBoard);
+		
+		if(savedInstanceState == null)
+		{
+			getSupportFragmentManager().beginTransaction().add(R.id.rootLayout, new Board(), "gameBoard").commit();
+		}
 	}
 	
 	public void clearBoard(View v)
 	{
-		activeBoard.clear();
+		((Board) (getSupportFragmentManager().findFragmentByTag("gameBoard"))).clear();
 	}
 	
 	public void doStep(View v)
 	{
-		activeBoard.evolve();
+		((Board) (getSupportFragmentManager().findFragmentByTag("gameBoard"))).evolve();
 	}
 	
 	public void toggle(View v)
@@ -65,27 +69,24 @@ public class MainActivity extends Activity
 	
 	public void swapType(View v)
 	{
-		BoardLayout regBoard = (BoardLayout)findViewById(R.id.gameBoard);
-		WrappedBoardLayout wrapBoard = (WrappedBoardLayout)findViewById(R.id.wrappedGameBoard);
-		if(regBoard.getVisibility() == View.VISIBLE)
+		FragmentManager fm = getSupportFragmentManager();
+		Board newBoard;
+		Board current = (Board) fm.findFragmentByTag("gameBoard");
+		GridLayout theGrid = (GridLayout) (((ViewGroup) current.getView()).getChildAt(0));
+		if(current instanceof WrappedBoard)
 		{
-			String state = regBoard.save();
-			wrapBoard.initialize(state);
-			regBoard.setVisibility(View.GONE);
-			wrapBoard.setVisibility(View.VISIBLE);
-			((Button) v).setText(R.string.btn_label6);
-			activeBoard = wrapBoard;
+			newBoard = new Board( theGrid );
+			((TextView) v).setText(R.string.btn_label5);
 		}
 		else
 		{
-			String state = wrapBoard.save();
-			regBoard.initialize(state);
-			wrapBoard.setVisibility(View.GONE);
-			regBoard.setVisibility(View.VISIBLE);
-			((Button) v).setText(R.string.btn_label5);
-			activeBoard = regBoard;
+			newBoard = new WrappedBoard( theGrid );
+			((TextView) v).setText(R.string.btn_label6);
 		}
-		activeBoard.postInvalidate();
+		((ViewGroup) theGrid.getParent()).removeView(theGrid);
+		fm.beginTransaction().replace(R.id.rootLayout, newBoard, "gameBoard").setCustomAnimations
+			(R.anim.abc_fade_in, R.anim.abc_fade_out, R.anim.abc_fade_in, R.anim.abc_fade_out).commit();
+		
 	}
 	
 }

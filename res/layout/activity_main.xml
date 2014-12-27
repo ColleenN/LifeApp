@@ -1,25 +1,17 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootLayout"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content" >
 
-    <colleen.gameoflife.BoardLayout
+    <!--<fragment android:name="colleen.gameoflife.Board"
         android:id="@+id/gameBoard"
+        android:tag="gameBoard"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_above="@+id/topBtnRow"
-        android:layout_centerHorizontal="true">
-    </colleen.gameoflife.BoardLayout>
-	  
-    <colleen.gameoflife.WrappedBoardLayout
-        android:id="@+id/wrappedGameBoard"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_above="@+id/topBtnRow"
-        android:layout_centerHorizontal="true"
-        android:visibility="gone">
-    </colleen.gameoflife.WrappedBoardLayout>
-
+        android:layout_centerHorizontal="true" />-->
     
+
 	<LinearLayout
         android:id="@+id/topBtnRow"
         android:layout_width="match_parent"
